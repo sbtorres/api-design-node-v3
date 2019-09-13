@@ -16,9 +16,18 @@ app.get('/', (req, res) => {
   res.status(200).send({ message: 'hello' })
 })
 
+app.get('/data', (req, res) => {
+  res.status(200).send({ message: 'you hit the data endpoint' })
+})
+
 app.post('/', (req, res) => {
   console.log(req.body)
   res.status(201).send({ message: 'ok' })
+})
+
+app.post('/data', (req, res) => {
+  console.log(req.body)
+  res.status(201).send(req.body)
 })
 
 export const start = () => {

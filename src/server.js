@@ -12,6 +12,14 @@ app.use(json())
 app.use(urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
+const router = express.Router()
+
+router.get('/me', (req, res) => {
+  res.send({ me: 'hello' })
+})
+
+app.use('/api', router)
+
 app.get('/', (req, res) => {
   res.status(200).send({ message: 'hello' })
 })
